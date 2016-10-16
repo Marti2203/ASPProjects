@@ -2,59 +2,17 @@
 @{
     ViewBag.Title = "Box";
 }
-
 <h2>Box</h2>
-
 @using (Html.BeginForm("RequestBox", "ATP", FormMethod.Post))
 {
-
-    <div class="form-group">
-        <div class="row">
-            @Html.LabelFor(model => model.Color, new { @class = "col-md-2" })
-            <div class="col-md-4">
-                @Html.TextBoxFor(model => model.Color, new { @class = "form-control col-md-4" })
-            </div>
-        </div>
-        <div class="row">
-            @Html.LabelFor(model => model.Material, new { @class = "col-md-2" })
-            <div class="col-md-4">
-                @Html.TextBoxFor(model => model.Material, new { @class = "form-control col-md-4" })
-            </div>
-        </div>
-        <div class="row">
-            @Html.LabelFor(model => model.Weight, new { @class = "col-md-2" })
-            <div class="col-md-4">
-                @Html.TextBoxFor(model => model.Weight, new { @class = "form-control col-md-4" })
-            </div>
-        </div>
-        <div class="row">
-            @Html.LabelFor(model => model.Height, new { @class = "col-md-2" })
-            <div class="col-md-4">
-                @Html.TextBoxFor(model => model.Height, new { @class = "form-control col-md-4" })
-            </div>
-        </div>
-        <div class="row">
-            @Html.LabelFor(model => model.Length, new { @class = "col-md-2" })
-            <div class="col-md-4">
-                @Html.TextBoxFor(model => model.Length, new { @class = "form-control col-md-4" })
-            </div>
-        </div>
-        <div class="row">
-            @Html.LabelFor(model => model.Width, new { @class = "col-md-2" })
-            <div class="col-md-4">
-                @Html.TextBoxFor(model => model.Width, new { @class = "form-control col-md-4" })
-            </div>
-        </div>
-
-    </div>
-
-
-    foreach (var property in Model.GetType().GetProperties())
+    foreach (System.Reflection.PropertyInfo property in Model.GetType().GetProperties())
     {
-        string name = property.Name;
-        object value = property.GetValue(Model);
-        @Html.LabelFor(model => name);
-        @Html.TextBoxFor(model => value);
+        <div class="row">
+            @Html.Label(property.Name, new { @class = "col-md-2" })
+            <div class="col-md-4">
+                @Html.TextBox(property.Name, property.GetValue(Model), new { @class = "form-control" })
+            </div>
+        </div>
     }
 
     <input class="btn btn-default" type="submit" value="Send" />

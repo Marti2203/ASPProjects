@@ -29,7 +29,7 @@ namespace TestApp.Controllers
 
 
             string message = string.Format("The request for box with with size {0}:{1}:{2} and weight {3}, color {4} and material {5} was successfully accepted."
-                ,viewModel.Width,viewModel.Weight,viewModel.Length,viewModel.Weight,viewModel.Color,viewModel.Material);
+                ,viewModel.Width,viewModel.Height,viewModel.Length,viewModel.Weight,viewModel.Color,viewModel.Material);
             //return View(viewModel);
             //return RedirectToAction("Box",viewModel);
             ViewBag.SuccessMessage = message;
