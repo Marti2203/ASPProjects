@@ -25,8 +25,12 @@ namespace TestApp.Controllers
         [HttpPost]
         public ActionResult RequestBox(BoxModel viewModel)
         {
-            if (viewModel.Width == 1) { viewModel.Width = (int)2e5; }
+            #region Testing Zone
+#if Test
 
+            if (viewModel.Width == 1) { viewModel.Width = (int)2e5; }
+#endif
+            #endregion
 
             string message = string.Format("The request for box with with size {0}:{1}:{2} and weight {3}, color {4} and material {5} was successfully accepted."
                 ,viewModel.Width,viewModel.Height,viewModel.Length,viewModel.Weight,viewModel.Color,viewModel.Material);
