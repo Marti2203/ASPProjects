@@ -17,7 +17,16 @@ namespace TestApp.Controllers
 
         public ActionResult Box()
         {
-            BoxModel viewModel = new BoxModel();
+            BoxModel viewModel;
+            if (TempData["viewModel"] != null)
+            {
+                viewModel = (BoxModel)TempData["viewModel"];
+            }
+            else
+            {
+                viewModel = new BoxModel();
+            }
+
             return View(viewModel);
         }
 
@@ -31,13 +40,20 @@ namespace TestApp.Controllers
             if (viewModel.Width == 1) { viewModel.Width = (int)2e5; }
 #endif
             #endregion
-
-            string message = string.Format("The request for box with with size {0}:{1}:{2} and weight {3}, color {4} and material {5} was successfully accepted."
-                ,viewModel.Width,viewModel.Height,viewModel.Length,viewModel.Weight,viewModel.Color,viewModel.Material);
-            //return View(viewModel);
-            //return RedirectToAction("Box",viewModel);
-            ViewBag.SuccessMessage = message;
-            return View();
+            if (ModelState.IsValid)
+            {
+                string message = string.Format("The request for box with with size {0}:{1}:{2} and weight {3}, color {4} and material {5} was successfully accepted."
+                , viewModel.Width, viewModel.Height, viewModel.Length, viewModel.Weight, viewModel.Colour, viewModel.Material);
+                //return View(viewModel);
+                //return RedirectToAction("Box",viewModel);
+                ViewBag.SuccessMessage = message;
+                return View();
+            }
+            else
+            {
+                TempData["viewModel"] = viewModel;
+                return RedirectToAction("Box");
+            }
         }
 
     }
