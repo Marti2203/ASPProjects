@@ -8,6 +8,14 @@ namespace TestApp.Models
 {
     public class BoxModel
     {
+
+        public BoxModel()
+        {
+            ID = Guid.NewGuid().ToString();
+        }
+
+        public string ID { get; set; }
+
         [Display(Name = "Colour", ResourceType = typeof(BoxResources))]
         [MaxLength(30, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]

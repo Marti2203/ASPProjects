@@ -79,7 +79,34 @@ namespace CommonFiles.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Heigh.
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Box Information.
+        /// </summary>
+        public static string EditPageName {
+            get {
+                return ResourceManager.GetString("EditPageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height.
         /// </summary>
         public static string Height {
             get {
@@ -93,6 +120,15 @@ namespace CommonFiles.Resource {
         public static string Length {
             get {
                 return ResourceManager.GetString("Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of Box Requests.
+        /// </summary>
+        public static string ListBoxes {
+            get {
+                return ResourceManager.GetString("ListBoxes", resourceCulture);
             }
         }
         

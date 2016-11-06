@@ -1,10 +1,11 @@
 ﻿@model TestApp.Models.BoxModel
 @{
-    ViewBag.Title = CommonFiles.Resource.BoxResources.PageName;
+    ViewBag.Title = CommonFiles.Resource.BoxResources.EditPageName;
 }
-<h2>@CommonFiles.Resource.BoxResources.PageName</h2>
-@using (Html.BeginForm("RequestBox", "ATP", FormMethod.Post))
+<h2>@CommonFiles.Resource.BoxResources.EditPageName</h2>
+@using (Html.BeginForm("EditBox", "ATP", FormMethod.Post))
 {
+    @Html.HiddenFor(model => model.ID);
     foreach (System.Reflection.PropertyInfo property in Model.GetType().GetProperties().Where(property => property.Name != "ID"))
     {
         <div class="row">

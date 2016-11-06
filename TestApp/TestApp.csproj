@@ -159,6 +159,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BoxModel.cs" />
+    <Compile Include="Models\SingletonBoxList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +201,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ATP\Box.cshtml" />
     <Content Include="Views\ATP\RequestBox.cshtml" />
+    <Content Include="Views\ATP\Boxes.cshtml" />
+    <Content Include="Views\ATP\EditBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -223,6 +226,9 @@
       <Project>{bcda9a16-119a-47d5-a175-e2b108414e64}</Project>
       <Name>CommonFiles</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
