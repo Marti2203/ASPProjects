@@ -6,3 +6,4 @@ C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\CommonFiles\obj\Deb
 C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\CommonFiles\obj\Debug\CommonFiles.csproj.GenerateResource.Cache
 C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\CommonFiles\obj\Debug\CommonFiles.dll
 C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\CommonFiles\obj\Debug\CommonFiles.pdb
+C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\CommonFiles\obj\Debug\CommonFiles.Resource.UserResources.resources

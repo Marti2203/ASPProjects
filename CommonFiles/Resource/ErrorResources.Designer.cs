@@ -70,6 +70,15 @@ namespace CommonFiles.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to InvalidAddress.
+        /// </summary>
+        public static string InvalidAddress {
+            get {
+                return ResourceManager.GetString("InvalidAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Field {0} is with max length {1}..
         /// </summary>
         public static string MaxLength {

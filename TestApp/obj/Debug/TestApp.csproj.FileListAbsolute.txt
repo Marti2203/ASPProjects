@@ -104,3 +104,10 @@ C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\bin\Newtons
 C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
 C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\obj\Debug\TestApp.dll
 C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\obj\Debug\TestApp.pdb
+C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\bin\BotDetect.dll
+C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\bin\BotDetect.Web.Mvc.dll
+C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\bin\JetBrains.Annotations.dll
+C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\bin\reCaptcha.dll
+C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\bin\WebActivatorEx.dll
+C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\bin\JetBrains.Annotations.xml
+C:\Users\fiber\documents\visual studio 2015\Projects\TestApp\TestApp\bin\reCaptcha.pdb
