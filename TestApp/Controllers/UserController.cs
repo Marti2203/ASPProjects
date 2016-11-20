@@ -1,4 +1,6 @@
-﻿using reCaptcha;
+﻿using CommonFiles.DTO;
+using Infrastructure;
+using reCaptcha;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -32,6 +34,17 @@ namespace TestApp.Controllers
         {
             if (viewModel.Agreement && ModelState.IsValid && ReCaptcha.Validate(ConfigurationManager.AppSettings["ReCaptcha:SecretKey"]))
             {
+                new UserService().InsertUser(new UserDTO
+                {
+                    About = viewModel.AboutText,
+                    Username = viewModel.Username,
+                    Email = viewModel.Email,
+                    Gender = viewModel.Gender.ToString(),
+                    SecretAnswer = viewModel.SecretAnswer,
+                    SecretQuestion = viewModel.SecretQuestion,
+                    Password = viewModel.PasswordTest
+                });
+
                 return View();
             }
 
@@ -41,7 +54,7 @@ namespace TestApp.Controllers
 
                 ViewBag.publicKey = ConfigurationManager.AppSettings["ReCaptcha:SiteKey"];
 
-                TempData["viewModel"] = viewModel;
+                TempData["userModel"] = viewModel;
                 return RedirectToAction("CreateUser");
             }
         }

@@ -172,3 +172,11 @@ C:\Users\fiber\Desktop\ASPProjects-master\TestApp\bin\Antlr3.Runtime.pdb
 C:\Users\fiber\Desktop\ASPProjects-master\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
 C:\Users\fiber\Desktop\ASPProjects-master\TestApp\obj\Debug\TestApp.dll
 C:\Users\fiber\Desktop\ASPProjects-master\TestApp\obj\Debug\TestApp.pdb
+C:\Users\fiber\Documents\Visual Studio 2015\Projects\TestApp\TestApp\bin\Infrastructure.dll
+C:\Users\fiber\Documents\Visual Studio 2015\Projects\TestApp\TestApp\bin\DataAccess.dll
+C:\Users\fiber\Documents\Visual Studio 2015\Projects\TestApp\TestApp\bin\EntityFramework.dll
+C:\Users\fiber\Documents\Visual Studio 2015\Projects\TestApp\TestApp\bin\Infrastructure.pdb
+C:\Users\fiber\Documents\Visual Studio 2015\Projects\TestApp\TestApp\bin\DataAccess.pdb
+C:\Users\fiber\Documents\Visual Studio 2015\Projects\TestApp\TestApp\bin\EntityFramework.xml
+C:\Users\fiber\Documents\Visual Studio 2015\Projects\TestApp\TestApp\bin\EntityFramework.SqlServer.dll
+C:\Users\fiber\Documents\Visual Studio 2015\Projects\TestApp\TestApp\bin\EntityFramework.SqlServer.xml
