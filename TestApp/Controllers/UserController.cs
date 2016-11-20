@@ -16,7 +16,7 @@ namespace TestApp.Controllers
             return RedirectToAction("Create");
         }
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult CreateUser()
         {
             ViewBag.Recaptcha = ReCaptcha.GetHtml(ConfigurationManager.AppSettings["ReCaptcha:SiteKey"]);
             ViewBag.publicKey = ConfigurationManager.AppSettings["ReCaptcha:SiteKey"];
@@ -26,21 +26,23 @@ namespace TestApp.Controllers
             else viewModel = new UserModel();
             return View(viewModel);
         }
+
+        [HttpPost]
         public ActionResult RequestUser(UserModel viewModel)
         {
-            if (ModelState.IsValid && ReCaptcha.Validate(ConfigurationManager.AppSettings["ReCaptcha:SecretKey"]))
+            if (viewModel.Agreement && ModelState.IsValid && ReCaptcha.Validate(ConfigurationManager.AppSettings["ReCaptcha:SecretKey"]))
             {
                 return View();
             }
 
             else
             {
-                ViewBag.RecaptchaLastErrors = ReCaptcha.GetLastErrors(this.HttpContext);
+                ViewBag.RecaptchaLastErrors = ReCaptcha.GetLastErrors(HttpContext);
 
                 ViewBag.publicKey = ConfigurationManager.AppSettings["ReCaptcha:SiteKey"];
 
                 TempData["viewModel"] = viewModel;
-                return RedirectToAction("Box");
+                return RedirectToAction("CreateUser");
             }
         }
     }
