@@ -44,10 +44,13 @@
             @Html.EnumDropDownListFor(model => model.Gender, UserResources.Gender, new { @class = "form-control" })
         </div>
     </div>
+    
+    <hr />
+
     <div class="row">
             @Html.Label(UserResources.About, new { @class = "col-md-2" })
         <div class="col-md-4">
-            @Html.TextAreaFor(model => model.AboutText, new { @class = "form-control" })
+            @Html.TextAreaFor(model => model.About, new { @class = "form-control" })
         </div>
     </div>
     <div class="row">
@@ -66,7 +69,6 @@
     <div class="row">
             @Html.Label(@UserResources.Agreement, new { @class = "col-md-4" })
         <div class="col-md-4">
-           @*   @Html.CheckBoxFor(model => model.Agreement, new { @class = "form-contol" })*@
             @Html.EditorFor(model => model.Agreement)
         </div>
     </div>

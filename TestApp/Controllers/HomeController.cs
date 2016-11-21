@@ -8,18 +8,19 @@ namespace TestApp.Controllers
 {
     public class HomeController : Controller
     {
+        //Open Index Page
         public ActionResult Index()
         {
             return View();
         }
-
+        //Open About Page
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
+        //Open Contact Page
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

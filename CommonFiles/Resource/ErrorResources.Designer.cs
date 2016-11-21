@@ -70,11 +70,20 @@ namespace CommonFiles.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to InvalidAddress.
+        ///   Looks up a localized string similar to Invalid Email Address.
         /// </summary>
         public static string InvalidAddress {
             get {
                 return ResourceManager.GetString("InvalidAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Field {0} does not match the pattern..
+        /// </summary>
+        public static string InvalidRegex {
+            get {
+                return ResourceManager.GetString("InvalidRegex", resourceCulture);
             }
         }
         
@@ -84,6 +93,15 @@ namespace CommonFiles.Resource {
         public static string MaxLength {
             get {
                 return ResourceManager.GetString("MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Field {0} is with min length {1}..
+        /// </summary>
+        public static string MinLength {
+            get {
+                return ResourceManager.GetString("MinLength", resourceCulture);
             }
         }
         

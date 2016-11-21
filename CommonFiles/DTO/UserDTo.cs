@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonFiles.DTO
 {
+    //DataTransferObject- Intermediary object between Model and Database Object
     public class UserDTO
     {
         public int ID { get; set; }

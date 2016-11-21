@@ -10,14 +10,15 @@ namespace TestApp.Controllers
 {
     public class ATPController : Controller
     {
-        private IList<BoxModel> _models;
+        private IList<BoxModel> _models;//The "database" for the boxes
 
         public ATPController()
         {
-            _models = SingletonBoxList.Models ;
+            _models = SingletonBoxList.Models ; //Create the instance of the Singleton
 
         }
 
+        //Open index page
         [HttpGet]
         public ActionResult Index()
         {
@@ -25,42 +26,36 @@ namespace TestApp.Controllers
         }
 
         [HttpGet]
+        //Create a new Box Model if the previous session had created one and show page for Box Creation
         public ActionResult Box()
         {
-            BoxModel viewModel;
-
-            if (TempData["viewModel"] != null)
-            {
-                viewModel = (BoxModel)TempData["viewModel"];
-            }
-            else
-            {
-                viewModel = new BoxModel();
-            }
+            BoxModel viewModel = (BoxModel)TempData["viewModel"] ?? new BoxModel();
 
             return View(viewModel);
         }
 
         [HttpGet]
+        //List all Boxes
         public ActionResult Boxes()
         {
             return View(_models);
         }
-
+        //Delete a box with the specified id
         public ActionResult DeleteBox(string id)
         {
-            _models.Remove(_models.Where(box => box.ID == id).FirstOrDefault());
+            _models.Remove(_models.Where(box => box.ID == id).FirstOrDefault());//Find box if there exists one
             return RedirectToAction("Boxes");
         }
 
-
+        //Edit information of a specified by id box
         public ActionResult EditBox(string id)
         {
-            BoxModel model = _models.Where(element => element.ID == id).FirstOrDefault();
+            BoxModel model = _models.Where(element => element.ID == id).FirstOrDefault();//Find box if there exists one
             return View(model);
         }
 
         [HttpPost]
+        //Edit box with a specified BoxModel
         public ActionResult EditBox(BoxModel viewModel)
         {
             if (ModelState.IsValid)
@@ -78,14 +73,11 @@ namespace TestApp.Controllers
         }
 
         [HttpPost]
+        //Output information of created box
         public ActionResult RequestBox(BoxModel viewModel)
         {
-            #region Testing Zone
-#if Test
 
-            if (viewModel.Width == 1) { viewModel.Width = (int)2e5; }
-#endif
-            #endregion
+            //Show a view consisting of the fields of the box
             if (ModelState.IsValid)
             {
                 string message = string.Format("The request for box with with size {0}:{1}:{2} and weight {3}, color {4} and material {5} was successfully accepted."
@@ -97,6 +89,7 @@ namespace TestApp.Controllers
                 return View();
 
             }
+            //Go back to creating a box
             else
             {
                 TempData["viewModel"] = viewModel;

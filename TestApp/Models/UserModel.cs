@@ -23,12 +23,11 @@ namespace TestApp.Models
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
         public string Username { get; set; }
 
-        public SHA256 PasswordHash { get; set;}
-
-        public SHA256 SecretAnswer { get; set; }
+        [MaxLength(50, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
+        [MinLength(3, ErrorMessageResourceName = "MinLength", ErrorMessageResourceType = typeof(ErrorResources))]
+        public string SecretAnswer { get; set; }
 
         [Display(Name = "Agreement", ResourceType = typeof(UserResources))]
-        [BooleanValidation(true)]
         public bool Agreement { get; set; }
 
         [Display(Name = "Gender", ResourceType = typeof(UserResources))]
@@ -39,6 +38,16 @@ namespace TestApp.Models
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
         public string Email{ get; set;}
 
+        [System.ComponentModel.DataAnnotations.Compare("PasswordTest")]
+        [MaxLength(20, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
+        [MinLength(6, ErrorMessageResourceName = "MinLength", ErrorMessageResourceType = typeof(ErrorResources))]
+        [RegularExpression("^[A-Z].*", ErrorMessageResourceName = "InvalidRegex", ErrorMessageResourceType = typeof(ErrorResources))]
+        public string PasswordSecond { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Compare("PasswordTest")]
+        [MaxLength(20, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
+        [MinLength(6, ErrorMessageResourceName = "MinLength", ErrorMessageResourceType = typeof(ErrorResources))]
+        [RegularExpression("^[A-Z].*",ErrorMessageResourceName ="InvalidRegex",ErrorMessageResourceType =typeof(ErrorResources))]
         public string PasswordTest { get; set; }
 
         [Display(Name = "SecretQuestion", ResourceType = typeof(UserResources))]
@@ -46,8 +55,8 @@ namespace TestApp.Models
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
         public string SecretQuestion { get; set; }
 
-        [DataType(DataType.MultilineText)]
-        public string AboutText { get; set; }
+        [Display(Name ="About",ResourceType =typeof(UserResources))]
+        public string About { get; set; }
 
 
         public readonly static SelectListItem[] Questions =
@@ -65,21 +74,6 @@ namespace TestApp.Models
             item.Value = text;
             item.Text = text;
             return item;
-        }
-    }
-    public class BooleanValidationAttribute : ValidationAttribute
-    {
-        bool _requiredValue;
-        public BooleanValidationAttribute(bool requiredValue)
-        {
-            this._requiredValue = requiredValue;
-        }
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-        {
-            if ((bool)value != _requiredValue)
-                return new ValidationResult("Value must be " + _requiredValue);
-
-            return null;
         }
     }
     public enum Gender
