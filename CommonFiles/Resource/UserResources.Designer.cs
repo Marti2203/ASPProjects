@@ -133,6 +133,15 @@ namespace CommonFiles.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Retype Password.
+        /// </summary>
+        public static string RetypePassword {
+            get {
+                return ResourceManager.GetString("RetypePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Answer.
         /// </summary>
         public static string SecretAnswer {

@@ -147,4 +147,7 @@
   <data name="SecretQuestion" xml:space="preserve">
     <value>Secret Question</value>
   </data>
+  <data name="RetypePassword" xml:space="preserve">
+    <value>Retype Password</value>
+  </data>
 </root>

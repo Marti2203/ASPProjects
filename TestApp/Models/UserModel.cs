@@ -38,12 +38,15 @@ namespace TestApp.Models
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
         public string Email{ get; set;}
 
+
+        [Display(Name ="RetypePassword",ResourceType =typeof(UserResources))]
         [System.ComponentModel.DataAnnotations.Compare("PasswordTest")]
         [MaxLength(20, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
         [MinLength(6, ErrorMessageResourceName = "MinLength", ErrorMessageResourceType = typeof(ErrorResources))]
         [RegularExpression("^[A-Z].*", ErrorMessageResourceName = "InvalidRegex", ErrorMessageResourceType = typeof(ErrorResources))]
         public string PasswordSecond { get; set; }
 
+        [Display(Name ="Password",ResourceType =typeof(UserResources))]
         [System.ComponentModel.DataAnnotations.Compare("PasswordTest")]
         [MaxLength(20, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
         [MinLength(6, ErrorMessageResourceName = "MinLength", ErrorMessageResourceType = typeof(ErrorResources))]
