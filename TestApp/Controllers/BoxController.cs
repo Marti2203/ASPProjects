@@ -30,7 +30,12 @@ namespace TestApp.Controllers
         //List all Boxes
         public ActionResult Boxes()
         {
-            return View(new BoxService().GetBoxes());
+            List<BoxModel> boxes = new List<BoxModel>();
+            foreach(BoxDTO dto in new BoxService().GetBoxes())
+            {
+                boxes.Add(Convert(dto));
+            }
+            return View(boxes);
         }
 
         [HttpPost]

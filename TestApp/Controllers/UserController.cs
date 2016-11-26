@@ -102,6 +102,26 @@ namespace TestApp.Controllers
             return RedirectToAction("LoginUser");
         }
 
+        public ActionResult Users()
+        {
+            List<UserModel> users=new List<UserModel>();
+            foreach (UserDTO dto in new UserService().GetUsers())
+            {
+                users.Add(Convert(dto));
+            }
+            return View(users);
+        }
+
+        private UserModel Convert(UserDTO dto)
+        {
+            UserModel model = new UserModel();
+            foreach (PropertyInfo property in model.GetType()
+                .GetProperties()
+                .Where(property => property.Name != "ID"))
+                property.SetValue(model, dto.GetType().GetProperty(property.Name).GetValue(dto));
+            return model;
+        }
+
         //Hash Creator
         private string ComputeHash(string input)
         {
