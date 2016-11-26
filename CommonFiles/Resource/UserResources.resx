@@ -150,4 +150,7 @@
   <data name="RetypePassword" xml:space="preserve">
     <value>Retype Password</value>
   </data>
+  <data name="btnLogin" xml:space="preserve">
+    <value />
+  </data>
 </root>

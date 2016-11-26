@@ -181,6 +181,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ATPController.cs" />
+    <Compile Include="Controllers\BoxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -234,6 +235,12 @@
     <Content Include="Views\ATP\EditBox.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
     <Content Include="Views\User\RequestUser.cshtml" />
+    <Content Include="Views\User\LoginUser.cshtml" />
+    <Content Include="Views\Box\Box.cshtml" />
+    <Content Include="Views\Box\Boxes.cshtml" />
+    <Content Include="Views\Box\EditBox.cshtml" />
+    <Content Include="Views\Box\RequestBox.cshtml" />
+    <Content Include="Views\User\EnterUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

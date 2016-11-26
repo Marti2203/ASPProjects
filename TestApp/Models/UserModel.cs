@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Security.Cryptography;
 using System.ComponentModel.DataAnnotations;
 using CommonFiles.Resource;
 using System.Web.Mvc;
+using static TestApp.Models.SelectListItemFactory;
 
 namespace TestApp.Models
 {
@@ -33,39 +33,39 @@ namespace TestApp.Models
         [Display(Name = "Gender", ResourceType = typeof(UserResources))]
         public Gender Gender { get; set; }
 
-        [EmailAddress(ErrorMessage = "Invalid Email")]
+        [EmailAddress(ErrorMessageResourceName ="InvalidAddress",ErrorMessageResourceType =typeof(ErrorResources))]
         [Display(Name = "Email", ResourceType = typeof(UserResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
-        public string Email{ get; set;}
+        public string Email { get; set; }
 
 
-        [Display(Name ="RetypePassword",ResourceType =typeof(UserResources))]
+        [Display(Name = "RetypePassword", ResourceType = typeof(UserResources))]
         [System.ComponentModel.DataAnnotations.Compare("PasswordTest")]
         [MaxLength(20, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
         [MinLength(6, ErrorMessageResourceName = "MinLength", ErrorMessageResourceType = typeof(ErrorResources))]
         [RegularExpression("^[A-Z].*", ErrorMessageResourceName = "InvalidRegex", ErrorMessageResourceType = typeof(ErrorResources))]
         public string PasswordSecond { get; set; }
 
-        [Display(Name ="Password",ResourceType =typeof(UserResources))]
+        [Display(Name = "Password", ResourceType = typeof(UserResources))]
         [System.ComponentModel.DataAnnotations.Compare("PasswordTest")]
         [MaxLength(20, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
         [MinLength(6, ErrorMessageResourceName = "MinLength", ErrorMessageResourceType = typeof(ErrorResources))]
-        [RegularExpression("^[A-Z].*",ErrorMessageResourceName ="InvalidRegex",ErrorMessageResourceType =typeof(ErrorResources))]
-        public string PasswordTest { get; set; }
+        [RegularExpression("^[A-Z].*", ErrorMessageResourceName = "InvalidRegex", ErrorMessageResourceType = typeof(ErrorResources))]
+        public string Password { get; set; }
 
         [Display(Name = "SecretQuestion", ResourceType = typeof(UserResources))]
         [MaxLength(50, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
         public string SecretQuestion { get; set; }
 
-        [Display(Name ="About",ResourceType =typeof(UserResources))]
+        [Display(Name = "About", ResourceType = typeof(UserResources))]
         public string About { get; set; }
 
 
         public readonly static SelectListItem[] Questions =
         {
-            SelectListItemFactory.CrateSecretQuestion("Test"),
-            SelectListItemFactory.CrateSecretQuestion("Second Test")
+            CrateSecretQuestion("Test"),
+            CrateSecretQuestion("Second Test")
         };
     }
     public static class SelectListItemFactory
@@ -73,15 +73,18 @@ namespace TestApp.Models
 
         public static SelectListItem CrateSecretQuestion(string text)
         {
-            SelectListItem item = new SelectListItem();
-            item.Value = text;
-            item.Text = text;
+            SelectListItem item = new SelectListItem()
+            {
+                Value = text,
+                Text = text
+            };
             return item;
         }
     }
+
     public enum Gender
     {
-        Male,Female,AttackHelicopter,Unknown
+        Unknown, Male, Female, AttackHelicopter
     }
 
 }

@@ -9,6 +9,7 @@
 /* MADE THE BEST CHECK BOX EVAAAAA*/
 input[type='checkbox'] {
     -webkit-appearance: none;
+    -moz-appearance:none;
     width: 30px;
     height: 30px;
     background: white;

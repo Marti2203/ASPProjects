@@ -34,5 +34,25 @@ namespace Infrastructure
 
             _dbContext.SaveChanges();//ALWAYS SAVE AFTER BEING DONE. Make only one transfer to the database for safety reasons
         }
+
+        public UserDTO GetUser(string username)
+        {
+            USER_NEW_NEW userEntity= _dbContext.USER_NEW_NEW.FirstOrDefault(user => user.USERNAME == username);
+            if (userEntity == null)
+                return null;
+            return new UserDTO {
+                Username = userEntity.USERNAME,
+                Password = userEntity.PASSWORD,
+                About = userEntity.ABOUT,
+                Email = userEntity.EMAIL,
+                Gender = userEntity.GENDER,
+                SecretAnswer=userEntity.SECRET_A,
+                SecretQuestion=userEntity.SECRET_Q
+            };
+        }
+        public bool HasUser(string username)=>_dbContext
+            .USER_NEW_NEW
+            .FirstOrDefault(entity => entity.USERNAME == username)!=null;
+        
     }
 }

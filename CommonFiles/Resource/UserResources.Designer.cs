@@ -88,6 +88,15 @@ namespace CommonFiles.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string btnLogin {
+            get {
+                return ResourceManager.GetString("btnLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string btnSend {

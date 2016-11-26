@@ -15,7 +15,6 @@ namespace TestApp.Controllers
         public ATPController()
         {
             _models = SingletonBoxList.Models ; //Create the instance of the Singleton
-
         }
 
         //Open index page
