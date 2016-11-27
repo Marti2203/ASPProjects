@@ -10,7 +10,7 @@ namespace TestApp.Controllers
 {
     public class ATPController : Controller
     {
-        private IList<BoxModel> _models;//The "database" for the boxes
+        private IList<SingletonBoxModel> _models;//The "database" for the boxes
 
         public ATPController()
         {
@@ -26,46 +26,46 @@ namespace TestApp.Controllers
 
         [HttpGet]
         //Create a new Box Model if the previous session had created one and show page for Box Creation
-        public ActionResult Box()
+        public ActionResult Create()
         {
-            BoxModel viewModel = (BoxModel)TempData["viewModel"] ?? new BoxModel();
+            SingletonBoxModel viewModel = (SingletonBoxModel)TempData["viewModel"] ?? new SingletonBoxModel();
 
             return View(viewModel);
         }
 
         [HttpGet]
         //List all Boxes
-        public ActionResult Boxes()
+        public ActionResult List()
         {
             return View(_models);
         }
         //Delete a box with the specified id
-        public ActionResult DeleteBox(string id)
+        public ActionResult Delete(string id)
         {
             _models.Remove(_models.Where(box => box.ID == id).FirstOrDefault());//Find box if there exists one
-            return RedirectToAction("Boxes");
+            return RedirectToAction("List");
         }
 
         //Edit information of a specified by id box
-        public ActionResult EditBox(string id)
+        public ActionResult Edit(string id)
         {
-            BoxModel model = _models.Where(element => element.ID == id).FirstOrDefault();//Find box if there exists one
+            SingletonBoxModel model = _models.Where(element => element.ID == id).FirstOrDefault();//Find box if there exists one
             return View(model);
         }
 
         [HttpPost]
-        //Edit box with a specified BoxModel
-        public ActionResult EditBox(BoxModel viewModel)
+        //Edit box with a specified SingletonBoxModel
+        public ActionResult Edit(SingletonBoxModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                BoxModel old = _models.Where(model => model.ID == viewModel.ID).FirstOrDefault();
+                SingletonBoxModel old = _models.Where(model => model.ID == viewModel.ID).FirstOrDefault();
                 foreach (PropertyInfo property in old.GetType().GetProperties())
                 {
                     property.SetValue(old, property.GetValue(viewModel));
                 }
 
-                return RedirectToAction("Boxes");
+                return RedirectToAction("List");
             }
             else
                 return RedirectToAction("Edit",new { id= viewModel.ID });
@@ -73,9 +73,8 @@ namespace TestApp.Controllers
 
         [HttpPost]
         //Output information of created box
-        public ActionResult RequestBox(BoxModel viewModel)
+        public ActionResult RequestBox(SingletonBoxModel viewModel)
         {
-
             //Show a view consisting of the fields of the box
             if (ModelState.IsValid)
             {
@@ -92,7 +91,7 @@ namespace TestApp.Controllers
             else
             {
                 TempData["viewModel"] = viewModel;
-                return RedirectToAction("Box");
+                return RedirectToAction("Create");
             }
         }
     }

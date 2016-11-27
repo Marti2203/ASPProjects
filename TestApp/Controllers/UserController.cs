@@ -22,10 +22,11 @@ namespace TestApp.Controllers
             return RedirectToAction("CreateUser");
         }
 
-        [HttpGet]
+
         //Create User model and check if the last session has tried to create a user and fills out the needed info in the view
         //if the model existed 
-        public ActionResult CreateUser()
+        [HttpGet]
+        public ActionResult Create()
         {
             ViewBag.Recaptcha = ReCaptcha.GetHtml(ConfigurationManager.AppSettings["ReCaptcha:SiteKey"]);
             ViewBag.publicKey = ConfigurationManager.AppSettings["ReCaptcha:SiteKey"];
@@ -34,14 +35,14 @@ namespace TestApp.Controllers
             return View(viewModel);
         }
 
-        [HttpPost]
+
         //After submit is clicked
-        public ActionResult CheckModel(UserModel viewModel)
+        [HttpPost]
+        public ActionResult CheckUserModel(UserModel viewModel)
         {
             //Checks if the user is valid and has agreed to the terms and validated the captcha
             if (viewModel.Agreement && ModelState.IsValid && ReCaptcha.Validate(ConfigurationManager.AppSettings["ReCaptcha:SecretKey"]))
             {
-                Type modelType = viewModel.GetType();
                 UserDTO userDTO = new UserDTO
                 {
                     Password = ComputeHash(viewModel.Password), //Put Hash of password in the database
@@ -51,11 +52,11 @@ namespace TestApp.Controllers
                     .GetProperties()
                     .Where(property => property.Name != "ID" && property.Name != "Password" && property.Name != "SecretAnswer"))
                 {
-                    property.SetValue(userDTO, modelType.GetProperty(property.Name).GetValue(viewModel).ToString());
+                    property.SetValue(userDTO, viewModel.GetType().GetProperty(property.Name).GetValue(viewModel).ToString());
                 }
 
                 //Submits the user to the database via the service
-                new UserService().InsertUser(userDTO);
+                new UserService().Insert(userDTO);
 
                 return View();
             }
@@ -72,11 +73,13 @@ namespace TestApp.Controllers
             }
         }
 
-        [HttpPost]
-        /*Create User model and check if the last session has tried to create a user and fills out the needed info in the view
-        *if the model existed
-        */
-        public ActionResult LoginUser()
+
+        /*Create User model and check if the last session 
+         * has tried to create a user and fills out the 
+         * needed info in the view if the model existed
+         */
+        [HttpGet]
+        public ActionResult Login()
         {
             ViewBag.Recaptcha = ReCaptcha.GetHtml(ConfigurationManager.AppSettings["ReCaptcha:SiteKey"]);
             ViewBag.publicKey = ConfigurationManager.AppSettings["ReCaptcha:SiteKey"];
@@ -85,42 +88,92 @@ namespace TestApp.Controllers
             return View(viewModel);
         }
 
-        [HttpGet]
         //Checks if there exists a user with the Username and after that Password
-        public ActionResult EnterUser(UserModel model)
+        [HttpPost]
+        public ActionResult Enter(UserModel model)
         {
-            UserService service = new UserService();
-            if (service.HasUser(model.Username) && service.GetUser(model.Username).Password == ComputeHash(model.Password))
+            if (new UserService().Get(model.ID).Password == ComputeHash(model.Password))
             {
                 return View();
             }
 
             //If there doesn't exist one, go back to the login screen
+            ViewBag.ErrorMessage = "Username or Password was incorrect. Try again.";
             ViewBag.RecaptchaLastErrors = ReCaptcha.GetLastErrors(HttpContext);
             ViewBag.publicKey = ConfigurationManager.AppSettings["ReCaptcha:SiteKey"];
             TempData["userModel"] = model;
             return RedirectToAction("LoginUser");
         }
 
+
+        //Lists all Users
+        [HttpGet]
         public ActionResult Users()
         {
-            List<UserModel> users=new List<UserModel>();
-            foreach (UserDTO dto in new UserService().GetUsers())
+            List<UserModel> users = new List<UserModel>();
+            foreach (UserDTO dto in new UserService().GetAll())
             {
                 users.Add(Convert(dto));
             }
             return View(users);
         }
 
-        private UserModel Convert(UserDTO dto)
+        //Gives a View for editing a user by a specified ID
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
-            UserModel model = new UserModel();
-            foreach (PropertyInfo property in model.GetType()
-                .GetProperties()
-                .Where(property => property.Name != "ID"))
-                property.SetValue(model, dto.GetType().GetProperty(property.Name).GetValue(dto));
-            return model;
+            UserModel model = Convert(new UserService().Get(id));
+            return View(model);
         }
+
+        //Outputs change to the database via UserService
+        [HttpPost]
+        public ActionResult Edit(UserModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                new UserService().Edit(Convert(viewModel));
+
+                return RedirectToAction("Users");
+            }
+            else
+                return RedirectToAction("Edit", new { username = viewModel.Username });
+        }
+
+        //Deletes a User selected by a specified ID
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            new UserService().Delete(id);
+            return RedirectToAction("Users");
+        }
+
+        #region Mappers
+        private UserModel Convert(UserDTO dto)
+        => new UserModel
+        {
+            About = dto.About,
+            Email = dto.Email,
+            Gender = (Gender)Enum.Parse(typeof(Gender), dto.Gender),
+            Agreement=true,
+            SecretQuestion = dto.SecretQuestion,
+            Username = dto.Username,
+            ID = dto.ID
+        };
+
+        private UserDTO Convert(UserModel viewModel)
+        => new UserDTO
+        {
+            About = viewModel.About,
+            Email = viewModel.Email,
+            Gender = viewModel.Gender.ToString(),
+            SecretQuestion = viewModel.SecretQuestion,
+            Password=ComputeHash(viewModel.Password),
+            SecretAnswer=ComputeHash(viewModel.SecretAnswer),
+            Username = viewModel.Username,
+            ID = viewModel.ID
+        };
+        #endregion
 
         //Hash Creator
         private string ComputeHash(string input)

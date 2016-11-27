@@ -135,7 +135,7 @@
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
   </data>
-  <data name="Name" xml:space="preserve">
+  <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>
   <data name="Password" xml:space="preserve">
@@ -152,5 +152,11 @@
   </data>
   <data name="btnLogin" xml:space="preserve">
     <value />
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit User Information</value>
+  </data>
+  <data name="ListUsers" xml:space="preserve">
+    <value>List of Users</value>
   </data>
 </root>

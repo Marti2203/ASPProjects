@@ -8,13 +8,7 @@ namespace TestApp.Models
 {
     public class BoxModel
     {
-
-        public BoxModel()
-        {
-            ID = Guid.NewGuid().ToString();
-        }
-
-        public string ID { get; set; }
+        public int ID { get; set; }
 
         [Display(Name = "Colour", ResourceType = typeof(BoxResources))]
         [MaxLength(30, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
@@ -23,15 +17,15 @@ namespace TestApp.Models
 
         [Display(Name = "Height", ResourceType = typeof(BoxResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
-        public int? Height { get; set; }
+        public decimal? Height { get; set; }
 
         [Display(Name = "Width", ResourceType = typeof(BoxResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
-        public int? Width { get; set; }
+        public decimal? Width { get; set; }
 
         [Display(Name = "Length", ResourceType = typeof(BoxResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
-        public int? Length { get; set; }
+        public decimal? Length { get; set; }
 
         [Display(Name = "Material", ResourceType = typeof(BoxResources))]
         [MaxLength(30, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
@@ -40,6 +34,6 @@ namespace TestApp.Models
 
         [Display(Name = "Weight", ResourceType = typeof(BoxResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
-        public int? Weight { get; set; }
+        public decimal? Weight { get; set; }
     }
 }

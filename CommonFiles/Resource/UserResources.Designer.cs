@@ -106,6 +106,15 @@ namespace CommonFiles.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit User Information.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -124,11 +133,11 @@ namespace CommonFiles.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username.
+        ///   Looks up a localized string similar to List of Users.
         /// </summary>
-        public static string Name {
+        public static string ListUsers {
             get {
-                return ResourceManager.GetString("Name", resourceCulture);
+                return ResourceManager.GetString("ListUsers", resourceCulture);
             }
         }
         
@@ -165,6 +174,15 @@ namespace CommonFiles.Resource {
         public static string SecretQuestion {
             get {
                 return ResourceManager.GetString("SecretQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
     }

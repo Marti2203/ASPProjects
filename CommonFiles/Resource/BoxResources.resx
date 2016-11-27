@@ -153,4 +153,7 @@
   <data name="ListBoxes" xml:space="preserve">
     <value>List of Box Requests</value>
   </data>
+  <data name="btnLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
 </root>

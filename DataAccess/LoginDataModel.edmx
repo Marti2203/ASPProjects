@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ATPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BOX">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COLOR" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MATERIAL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="WEIGHT" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LENGTH" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="WIDTH" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="HEIGHT" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
@@ -32,6 +44,7 @@
           <Property Name="SECRET_A" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityContainer Name="ATPModelStoreContainer">
+          <EntitySet Name="BOX" EntityType="Self.BOX" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER_NEW_NEW" EntityType="Self.USER_NEW_NEW" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -55,6 +68,7 @@
         <EntityContainer Name="ATPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="USER_NEW_NEW" EntityType="ATPModel.USER_NEW_NEW" />
+          <EntitySet Name="BOX" EntityType="ATPModel.BOX" />
         </EntityContainer>
         <EntityType Name="USER_NEW_NEW">
           <Key>
@@ -68,6 +82,18 @@
           <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="SECRET_Q" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="SECRET_A" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BOX">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COLOR" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MATERIAL" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WEIGHT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="LENGTH" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="WIDTH" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="HEIGHT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -99,6 +125,19 @@
                 <ScalarProperty Name="ABOUT" ColumnName="ABOUT" />
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
                 <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOX">
+            <EntityTypeMapping TypeName="ATPModel.BOX">
+              <MappingFragment StoreEntitySet="BOX">
+                <ScalarProperty Name="HEIGHT" ColumnName="HEIGHT" />
+                <ScalarProperty Name="WIDTH" ColumnName="WIDTH" />
+                <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+                <ScalarProperty Name="COLOR" ColumnName="COLOR" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

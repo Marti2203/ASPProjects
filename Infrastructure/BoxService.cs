@@ -1,113 +1,83 @@
-﻿using CommonFiles.DTO;
-using DataAccess;
+﻿using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonFiles.DTO;
+using System.Reflection;
 
 namespace Infrastructure
 {
+    //Service for communication between the Database and the Controller
     public class BoxService
     {
-        private ATPEntities _dbContext; //Database context(database connection)
-        private int starterID;
-        public BoxService()
+        public void Insert(BoxDTO box)
         {
-            _dbContext = new ATPEntities();//Connect to database
-            starterID = new Random().Next();
-        }
-        public void InsertBox(BoxDTO box)
+            ATPEntities _dbContext = new ATPEntities();//Create connection
+            _dbContext.BOX.Add(Convert(box));//Add box to database
+
+            _dbContext.SaveChanges();//Save Changes to the database
+        }//Adds a box to the database
+
+        public void Delete(int id)
         {
-            start:
-            try
+            ATPEntities _dbContext = new ATPEntities();//Create connection
+            //Remove box if it exists
+            _dbContext.BOX.Remove(_dbContext.BOX.Where(entity => entity.ID == id).FirstOrDefault());
+            _dbContext.SaveChanges();//Save Changes to the database
+        }//Removes a box with the specified ID
+
+        public void Edit(BoxDTO dto)
+        {
+            ATPEntities _dbContext = new ATPEntities();//Create connection
+            BOX old = _dbContext.BOX.Where(entity => entity.ID == dto.ID).FirstOrDefault();//Get the old box
+            BOX newBOX = Convert(dto);//Create a new box from a conversion
+            foreach (PropertyInfo property in old.GetType().GetProperties().Where(property => property.Name != "ID"))
+                property.SetValue(old, property.GetValue(newBOX));// set the values of the old box to the values of the new one
+            _dbContext.SaveChanges();//Save Changes to the database
+        }//Edit a box with the specified by the DTO ID
+
+        public BoxDTO Get(int id)
+        {
+            ATPEntities _dbContext = new ATPEntities();//Create connection
+            BOX box = _dbContext.BOX.Where(entity => entity.ID == id).FirstOrDefault();//Find box with id or return null
+            return Convert(box);//Convert to DTO and return
+        }//Gets a box with the specified ID
+
+        public IEnumerable<BoxDTO> GetAll()
+        {
+            ATPEntities _dbContext = new ATPEntities();//Create connection
+            foreach (BOX box in _dbContext.BOX)
             {
-                _dbContext.User.Add(GenerateUser(box));
+                yield return Convert(box);
             }
-            catch (System.Data.DataException)
-            {
-                starterID = new Random().Next();
-                goto start;
-            }
-                _dbContext.SaveChanges();
-        }
-        public IEnumerable<BoxDTO> GetBoxes()
+        }//Gets all boxes as an IEnumerable
+
+        #region Mappers
+        public BoxDTO Convert(BOX box)
+        => new BoxDTO
         {
-            foreach (User user in _dbContext.User)
-            {
-                yield return GenerateDTO(user);
-            }
-        }
-        /*
-         * Name : Colour
-         * Password: Material
-         * About: Weight,Length,Height,Width
-         * Email: GUID
-         */
-        private User GenerateUser(BoxDTO box)
+            Colour = box.COLOR,
+            Height = box.HEIGHT,
+            Length = box.LENGTH,
+            Material = box.MATERIAL,
+            Weight = box.WEIGHT,
+            Width = box.WIDTH,
+            ID = box.ID
+        };
+
+        public BOX Convert(BoxDTO dto)
+        => new BOX
         {
-            User boxObject = new User
-            {
-                USERNAME = box.Colour,
-                PASSWORD = box.Material,
-                EMAIL = box.ID,
-            };
-            #region Add Dimensions To User Entity
-            StringBuilder builder = new StringBuilder();
-
-            builder.Append(box.Weight);
-            builder.Append(',');
-            builder.Append(box.Length);
-            builder.Append(',');
-            builder.Append(box.Height);
-            builder.Append(',');
-            builder.Append(box.Width);
-
-            boxObject.ABOUT = builder.ToString();
-            #endregion
-
-            boxObject.ID = starterID++;
-            boxObject.GENDER = "b";
-            boxObject.SECRET_A = string.Empty;
-            boxObject.SECRET_Q = string.Empty;
-
-            return boxObject;
-        }
-        private BoxDTO GenerateDTO(User user)
-        {
-            BoxDTO box = new BoxDTO()
-            {
-                Colour = user.USERNAME,
-                Material = user.PASSWORD,
-                ID = user.EMAIL
-            };
-
-            string[] elements = user.ABOUT.Split(',');
-
-            #region Get Dimensions From User Entity
-            box.Weight = int.Parse(elements[0]);
-            box.Length = int.Parse(elements[1]);
-            box.Height = int.Parse(elements[2]);
-            box.Width = int.Parse(elements[3]);
-            #endregion
-
-            return box;
-        }
-
-        public void RemoveBox(string id)
-        {
-            User user= _dbContext.User.Where(entity => entity.EMAIL == id).FirstOrDefault();
-            if (user != null)
-                _dbContext.User.Remove(user);
-            _dbContext.SaveChanges();
-        }
-
-        public BoxDTO GetBox(string id)
-        {
-            User user = _dbContext.User.Where(entity => entity.EMAIL == id).FirstOrDefault();
-            if (user != null)
-                return GenerateDTO(user);
-            return null;
-        }
+            COLOR = dto.Colour,
+            HEIGHT = dto.Height,
+            LENGTH = dto.Length,
+            MATERIAL = dto.Material,
+            WEIGHT = dto.Width,
+            WIDTH = dto.Weight,
+            ID = dto.ID
+        };
+        #endregion
     }
 }

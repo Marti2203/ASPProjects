@@ -182,13 +182,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ATPController.cs" />
     <Compile Include="Controllers\BoxController.cs" />
+    <Compile Include="Controllers\BoxHackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SingletonBoxModel.cs" />
     <Compile Include="Models\BoxModel.cs" />
-    <Compile Include="Models\SingletonBoxList.cs" />
+    <Compile Include="Models\BoxModelHack.cs" />
+    <Compile Include="Models\Utilities\Gender.cs" />
+    <Compile Include="Models\Utilities\SelectListItemFactory.cs" />
+    <Compile Include="Models\Utilities\SingletonBoxList.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -233,14 +238,20 @@
     <Content Include="Views\ATP\RequestBox.cshtml" />
     <Content Include="Views\ATP\Boxes.cshtml" />
     <Content Include="Views\ATP\EditBox.cshtml" />
-    <Content Include="Views\User\CreateUser.cshtml" />
-    <Content Include="Views\User\RequestUser.cshtml" />
-    <Content Include="Views\User\LoginUser.cshtml" />
-    <Content Include="Views\Box\Box.cshtml" />
-    <Content Include="Views\Box\Boxes.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\CheckModel.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\BoxHack\Box.cshtml" />
+    <Content Include="Views\BoxHack\Boxes.cshtml" />
+    <Content Include="Views\BoxHack\EditBox.cshtml" />
+    <Content Include="Views\BoxHack\RequestBox.cshtml" />
+    <Content Include="Views\User\Enter.cshtml" />
+    <Content Include="Views\User\Users.cshtml" />
     <Content Include="Views\Box\EditBox.cshtml" />
     <Content Include="Views\Box\RequestBox.cshtml" />
-    <Content Include="Views\User\EnterUser.cshtml" />
+    <Content Include="Views\Box\Boxes.cshtml" />
+    <Content Include="Views\Box\Box.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

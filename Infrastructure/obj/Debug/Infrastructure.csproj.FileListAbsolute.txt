@@ -14,7 +14,6 @@ C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\bin\Debug\CommonFiles.dll
 C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\bin\Debug\DataAccess.dll
 C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\bin\Debug\CommonFiles.pdb
 C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\bin\Debug\DataAccess.pdb
-C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\bin\Debug\EntityFramework.xml
 C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\obj\Debug\Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\obj\Debug\Infrastructure.dll
 C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\obj\Debug\Infrastructure.pdb
