@@ -177,11 +177,11 @@ namespace TestApp.Controllers
 
         //Hash Creator
         private string ComputeHash(string input)
-        {
+        {            
             byte[] hash = SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
             StringBuilder builder = new StringBuilder(256);
             foreach (byte element in hash) builder.Append(element.ToString("x2"));
-
+            
             return builder.ToString();
         }
     }

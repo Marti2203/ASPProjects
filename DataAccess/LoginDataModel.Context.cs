@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess
+namespace UserApp.DataAccess
 {
     using System;
     using System.Data.Entity;

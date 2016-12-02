@@ -185,15 +185,15 @@ C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\BotDetect.Web.Mvc.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\CommonFiles.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\EntityFramework.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\EntityFramework.SqlServer.dll
-C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\Infrastructure.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\JetBrains.Annotations.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\reCaptcha.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\WebActivatorEx.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\DataAccess.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\CommonFiles.pdb
-C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\Infrastructure.pdb
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\EntityFramework.xml
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\EntityFramework.SqlServer.xml
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\JetBrains.Annotations.xml
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\reCaptcha.pdb
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\DataAccess.pdb
+C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\UserApp.Infrastructure.dll
+C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\UserApp.Infrastructure.pdb

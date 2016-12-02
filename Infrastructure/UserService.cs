@@ -1,14 +1,14 @@
-﻿using DataAccess;
-using CommonFiles;
+﻿using UserApp.DataAccess;
+using UserApp.CommonFiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommonFiles.DTO;
+using UserApp.CommonFiles.DTO;
 using System.Reflection;
 
-namespace Infrastructure
+namespace UserApp.Infrastructure
 {
     //Service for communication between the Database and the Controller
     public class UserService

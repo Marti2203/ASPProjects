@@ -234,23 +234,23 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\ATP\Box.cshtml" />
+    <Content Include="Views\ATP\Create.cshtml" />
     <Content Include="Views\ATP\RequestBox.cshtml" />
-    <Content Include="Views\ATP\Boxes.cshtml" />
-    <Content Include="Views\ATP\EditBox.cshtml" />
+    <Content Include="Views\ATP\List.cshtml" />
+    <Content Include="Views\ATP\Edit.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\CheckModel.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\BoxHack\Box.cshtml" />
-    <Content Include="Views\BoxHack\Boxes.cshtml" />
-    <Content Include="Views\BoxHack\EditBox.cshtml" />
+    <Content Include="Views\BoxHack\Create.cshtml" />
+    <Content Include="Views\BoxHack\List.cshtml" />
+    <Content Include="Views\BoxHack\Edit.cshtml" />
     <Content Include="Views\BoxHack\RequestBox.cshtml" />
     <Content Include="Views\User\Enter.cshtml" />
     <Content Include="Views\User\Users.cshtml" />
-    <Content Include="Views\Box\EditBox.cshtml" />
+    <Content Include="Views\Box\Edit.cshtml" />
     <Content Include="Views\Box\RequestBox.cshtml" />
-    <Content Include="Views\Box\Boxes.cshtml" />
-    <Content Include="Views\Box\Box.cshtml" />
+    <Content Include="Views\Box\List.cshtml" />
+    <Content Include="Views\Box\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -271,12 +271,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonFiles\CommonFiles.csproj">
-      <Project>{bcda9a16-119a-47d5-a175-e2b108414e64}</Project>
+    <ProjectReference Include="..\..\ASPUser\UserApp\CommonFiles\CommonFiles.csproj">
+      <Project>{6e095cb5-1375-4a4d-b3e0-f0cf6b293341}</Project>
       <Name>CommonFiles</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
-      <Project>{49c43a3f-4caa-450f-9ef3-a71088b8fa1d}</Project>
+    <ProjectReference Include="..\..\ASPUser\UserApp\Infrastructure\Infrastructure.csproj">
+      <Project>{afa89f13-aa6d-4ff6-ac62-ea6d72e11ff5}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>

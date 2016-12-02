@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CommonFiles.Resource {
+namespace UserApp.CommonFiles.Resource {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CommonFiles.Resource {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CommonFiles.Resource.ErrorResources", typeof(ErrorResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UserApp.CommonFiles.Resource.ErrorResources", typeof(ErrorResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

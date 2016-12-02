@@ -1,13 +1,13 @@
-﻿using DataAccess;
+﻿using UserApp.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommonFiles.DTO;
+using UserApp.CommonFiles.DTO;
 using System.Reflection;
 
-namespace Infrastructure
+namespace UserApp.Infrastructure
 {
     //Service for communication between the Database and the Controller
     public class BoxService
