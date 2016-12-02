@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.25920.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{0B35B15F-C8D4-4542-8BD0-292FE65F94BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonFiles", "..\ASPUser\UserApp\CommonFiles\CommonFiles.csproj", "{6E095CB5-1375-4A4D-B3E0-F0CF6B293341}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonFiles", "CommonFiles\CommonFiles.csproj", "{6E095CB5-1375-4A4D-B3E0-F0CF6B293341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\ASPUser\UserApp\DataAccess\DataAccess.csproj", "{A2E9834B-D56F-4AE9-BA15-9ED45DBFBA98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A2E9834B-D56F-4AE9-BA15-9ED45DBFBA98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "..\ASPUser\UserApp\Infrastructure\Infrastructure.csproj", "{AFA89F13-AA6D-4FF6-AC62-EA6D72E11FF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{AFA89F13-AA6D-4FF6-AC62-EA6D72E11FF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
