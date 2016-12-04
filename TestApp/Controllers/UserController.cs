@@ -69,7 +69,7 @@ namespace TestApp.Controllers
 
                 TempData["agreement"] = "You have not agreed to our terms and conditions";
                 TempData["userModel"] = viewModel;
-                return RedirectToAction("CreateUser");
+                return RedirectToAction("Create");
             }
         }
 
@@ -102,7 +102,7 @@ namespace TestApp.Controllers
             ViewBag.RecaptchaLastErrors = ReCaptcha.GetLastErrors(HttpContext);
             ViewBag.publicKey = ConfigurationManager.AppSettings["ReCaptcha:SiteKey"];
             TempData["userModel"] = model;
-            return RedirectToAction("LoginUser");
+            return RedirectToAction("Login");
         }
 
 
@@ -134,7 +134,7 @@ namespace TestApp.Controllers
             {
                 new UserService().Edit(Convert(viewModel));
 
-                return RedirectToAction("Users");
+                return RedirectToAction("List");
             }
             else
                 return RedirectToAction("Edit", new { username = viewModel.Username });
@@ -145,7 +145,7 @@ namespace TestApp.Controllers
         public ActionResult Delete(int id)
         {
             new UserService().Delete(id);
-            return RedirectToAction("Users");
+            return RedirectToAction("List");
         }
 
         #region Mappers

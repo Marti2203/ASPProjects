@@ -40,6 +40,7 @@ namespace TestApp.Models
         public string PictureName { get; set; }
 
         public HttpPostedFileBase Picture { get; set; }
+
         public byte[] PictureBytes { get; set; }
 
     }

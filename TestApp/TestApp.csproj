@@ -257,6 +257,8 @@
     <Content Include="Views\CV\List.cshtml" />
     <Content Include="Views\CV\Create.cshtml" />
     <Content Include="Views\CV\CheckModel.cshtml" />
+    <Content Include="Views\CV\Edit.cshtml" />
+    <Content Include="Views\CV\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

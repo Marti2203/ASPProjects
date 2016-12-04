@@ -57,6 +57,50 @@ namespace TestApp.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            return View(Convert(new CVService().Get(id)));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(CVModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.Picture != null)
+                {
+                    new CVService().Edit(Convert(model));
+                }
+                else
+                {
+                    CVService service = new CVService();
+                    CVDTO dto= service.Get(model.ID);
+                    dto.Address = model.Address;
+                    dto.Education = model.Education;
+                    dto.Email = model.Email;
+                    dto.Experience = model.Experience;
+                    dto.Qualities = model.Qualities;
+                    service.Edit(dto);
+                }
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return View(model);
+            }
+        }
+
+        public ActionResult Delete(int id)
+        {
+            new CVService().Delete(id);
+            return RedirectToAction("List");
+        }
+
+        public ActionResult View(int id)=>View(Convert(new CVService().Get(id)));
+        
+
         private CVModel Convert(CVDTO dto) => new CVModel
         {
             Address = dto.Address,
@@ -66,6 +110,7 @@ namespace TestApp.Controllers
             Experience = dto.Experience,
             FirstName = dto.FirstName,
             LastName = dto.LastName,
+            Qualities=dto.Qualities,
             PictureBytes = dto.PictureBytes,
             PictureName = dto.PictureName
         };
