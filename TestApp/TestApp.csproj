@@ -183,11 +183,13 @@
     <Compile Include="Controllers\ATPController.cs" />
     <Compile Include="Controllers\BoxController.cs" />
     <Compile Include="Controllers\BoxHackController.cs" />
+    <Compile Include="Controllers\CVController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CVModel.cs" />
     <Compile Include="Models\SingletonBoxModel.cs" />
     <Compile Include="Models\BoxModel.cs" />
     <Compile Include="Models\BoxModelHack.cs" />
@@ -246,12 +248,15 @@
     <Content Include="Views\BoxHack\Edit.cshtml" />
     <Content Include="Views\BoxHack\RequestBox.cshtml" />
     <Content Include="Views\User\Enter.cshtml" />
-    <Content Include="Views\User\Users.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Box\Edit.cshtml" />
     <Content Include="Views\Box\RequestBox.cshtml" />
     <Content Include="Views\Box\List.cshtml" />
     <Content Include="Views\Box\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\CV\List.cshtml" />
+    <Content Include="Views\CV\Create.cshtml" />
+    <Content Include="Views\CV\CheckModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

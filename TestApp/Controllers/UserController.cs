@@ -19,7 +19,7 @@ namespace TestApp.Controllers
         //By default, accessing the User Controller without a specified action, you are prompted to create a user
         public ActionResult Index()
         {
-            return RedirectToAction("CreateUser");
+            return RedirectToAction("Create");
         }
 
 
@@ -108,7 +108,7 @@ namespace TestApp.Controllers
 
         //Lists all Users
         [HttpGet]
-        public ActionResult Users()
+        public ActionResult List()
         {
             List<UserModel> users = new List<UserModel>();
             foreach (UserDTO dto in new UserService().GetAll())
