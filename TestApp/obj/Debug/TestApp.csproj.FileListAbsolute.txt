@@ -195,8 +195,6 @@ C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\EntityFramework.SqlServer.xm
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\JetBrains.Annotations.xml
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\reCaptcha.pdb
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\DataAccess.pdb
-C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\UserApp.Infrastructure.dll
-C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\UserApp.Infrastructure.pdb
 C:\Users\fiber\Source\Repos\ASPProjects\TestApp\bin\roslyn\csc.exe
 C:\Users\fiber\Source\Repos\ASPProjects\TestApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\fiber\Source\Repos\ASPProjects\TestApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -266,3 +264,5 @@ C:\Users\fiber\Source\Repos\ASPProjects\TestApp\bin\DataAccess.pdb
 C:\Users\fiber\Source\Repos\ASPProjects\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
 C:\Users\fiber\Source\Repos\ASPProjects\TestApp\obj\Debug\TestApp.dll
 C:\Users\fiber\Source\Repos\ASPProjects\TestApp\obj\Debug\TestApp.pdb
+C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\Infrastructure.dll
+C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\Infrastructure.pdb

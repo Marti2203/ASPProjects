@@ -3,9 +3,9 @@
     ViewBag.Title = "Create";
 }
 
-@using (Html.BeginForm("CheckModel", "CV", FormMethod.Post,new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("CheckModel", "CV", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-
+    @Html.AntiForgeryToken()
     <div class="row">
         @Html.LabelFor(model => model.FirstName, new { @class = "col-md-2" })
         <div class="col-md-4">

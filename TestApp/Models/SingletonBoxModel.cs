@@ -15,6 +15,11 @@ namespace TestApp.Models
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
         public string Colour { get; set; }
 
+        [Display(Name = "Material", ResourceType = typeof(BoxResources))]
+        [MaxLength(30, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
+        public string Material { get; set; }
+
         [Display(Name = "Height", ResourceType = typeof(BoxResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
         public decimal? Height { get; set; }
@@ -26,11 +31,6 @@ namespace TestApp.Models
         [Display(Name = "Length", ResourceType = typeof(BoxResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
         public decimal? Length { get; set; }
-
-        [Display(Name = "Material", ResourceType = typeof(BoxResources))]
-        [MaxLength(30, ErrorMessageResourceName = "MaxLength", ErrorMessageResourceType = typeof(ErrorResources))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]
-        public string Material { get; set; }
 
         [Display(Name = "Weight", ResourceType = typeof(BoxResources))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ErrorResources))]

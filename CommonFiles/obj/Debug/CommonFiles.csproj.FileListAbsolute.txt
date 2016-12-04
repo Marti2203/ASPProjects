@@ -35,3 +35,4 @@ C:\Users\fiber\Source\Repos\ASPProjects\CommonFiles\obj\Debug\CommonFiles.csproj
 C:\Users\fiber\Source\Repos\ASPProjects\CommonFiles\obj\Debug\CommonFiles.dll
 C:\Users\fiber\Source\Repos\ASPProjects\CommonFiles\obj\Debug\CommonFiles.pdb
 C:\Users\fiber\Source\Repos\ASPProjects\CommonFiles\obj\Debug\CommonFiles.Resource.CVResources.resources
+C:\Users\marti\Source\Repos\ASPProjects\CommonFiles\obj\Debug\CommonFiles.Resource.CVResources.resources

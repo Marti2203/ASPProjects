@@ -9,6 +9,7 @@ using TestApp.Models;
 using reCaptcha;
 using System.Configuration;
 using System.Diagnostics;
+using System.Web.Helpers;
 
 namespace TestApp.Controllers
 {
@@ -20,23 +21,33 @@ namespace TestApp.Controllers
             return RedirectToAction("Create");
         }
 
+        [HttpGet]
         public ActionResult List()
         {
-            IEnumerable<CVModel> dtos = new CVService().GetAll().Select(element=>Convert(element));
+            IEnumerable<CVModel> dtos = new CVService().GetAll().Select(element => Convert(element));
             return View(dtos);
         }
-        
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CheckModel(CVModel model)
         {
-            model.PictureBytes=new byte[model.Picture.ContentLength];
+            model.PictureBytes = new byte[model.Picture.ContentLength];
             model.Picture.InputStream.Read(model.PictureBytes, 0, model.Picture.ContentLength);
 
             if (ModelState.IsValid)
-            new CVService().Insert(Convert(model));
-
-            return View(model);
+            {
+                new CVService().Insert(Convert(model));
+                return View(model);
+            }
+            else
+            {
+                TempData["CVModel"] = model;
+                return RedirectToAction("Create");
+            }
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.Recaptcha = ReCaptcha.GetHtml(ConfigurationManager.AppSettings["ReCaptcha:SiteKey"]);
@@ -45,6 +56,7 @@ namespace TestApp.Controllers
 
             return View(model);
         }
+
         private CVModel Convert(CVDTO dto) => new CVModel
         {
             Address = dto.Address,
@@ -66,7 +78,7 @@ namespace TestApp.Controllers
             Experience = model.Experience,
             FirstName = model.FirstName,
             LastName = model.LastName,
-            Qualities=model.Qualities,
+            Qualities = model.Qualities,
             PictureBytes = model.PictureBytes,
             PictureName = model.Picture.FileName
         };
