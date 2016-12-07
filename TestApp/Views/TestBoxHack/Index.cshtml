@@ -1,0 +1,15 @@
+﻿@model IQueryable<DataAccess.User>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(DataAccess.User element in Model)
+{
+    foreach(System.Reflection.PropertyInfo property in element.GetType().GetProperties())
+    {
+        @Html.Raw(property.GetValue(element))
+        <br />
+    }
+}

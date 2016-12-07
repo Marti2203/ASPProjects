@@ -266,3 +266,5 @@ C:\Users\fiber\Source\Repos\ASPProjects\TestApp\obj\Debug\TestApp.dll
 C:\Users\fiber\Source\Repos\ASPProjects\TestApp\obj\Debug\TestApp.pdb
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\Infrastructure.dll
 C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\Infrastructure.pdb
+C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\InfrastructureInterfaces.dll
+C:\Users\marti\Source\Repos\ASPProjects\TestApp\bin\InfrastructureInterfaces.pdb

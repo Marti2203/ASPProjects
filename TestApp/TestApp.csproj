@@ -185,6 +185,7 @@
     <Compile Include="Controllers\BoxHackController.cs" />
     <Compile Include="Controllers\CVController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestBoxHackController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -259,6 +260,7 @@
     <Content Include="Views\CV\CheckModel.cshtml" />
     <Content Include="Views\CV\Edit.cshtml" />
     <Content Include="Views\CV\View.cshtml" />
+    <Content Include="Views\TestBoxHack\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -284,6 +286,14 @@
     <ProjectReference Include="..\CommonFiles\CommonFiles.csproj">
       <Project>{6e095cb5-1375-4a4d-b3e0-f0cf6b293341}</Project>
       <Name>CommonFiles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{a2e9834b-d56f-4ae9-ba15-9ed45dbfba98}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfrastructureInterfaces\InfrastructureInterfaces.csproj">
+      <Project>{42900732-8db7-4353-9410-c137378d98f9}</Project>
+      <Name>InfrastructureInterfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{afa89f13-aa6d-4ff6-ac62-ea6d72e11ff5}</Project>
