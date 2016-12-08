@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace InfrastructureInterfaces
 {
-    public interface IService<Entity>
+    public interface IService<DTOType>
     {
-        Entity Get(int id);
+        void Insert(DTOType entity);
+        DTOType Get(int id);
         void Remove(int id);
         bool Has(int id);
-        IQueryable<Entity> EntitiesQuery { get; }
+        IQueryable<DTOType> EntitiesQuery();
     }
 }

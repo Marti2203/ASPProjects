@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 namespace CommonFiles.DTO
 {
+    //DataTransferObject- Intermediary object between Model and Database Object
     public class CVDTO
     {
         public int ID { get; set; }
@@ -17,7 +18,8 @@ namespace CommonFiles.DTO
         public string Education { get; set; }
         public string Address { get; set; }
 
-        public byte[] PictureBytes { get; set; }
-        public string PictureName { get; set; }
+        //The picture is two parts
+        public byte[] PictureBytes { get; set; } //The picutre
+        public string PictureName { get; set; } //The name of the picture
     }
 }

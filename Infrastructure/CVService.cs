@@ -10,24 +10,24 @@ namespace Infrastructure
 {
     public class CVService
     {
-        public void Insert(CVDTO dto)
+        public void Insert(CVDTO dto)// Add a CV to the database
         {
             ATPEntities context = new ATPEntities();
             context.CV.Add(Convert(dto));
-            context.SaveChanges();
+            context.SaveChanges();// Always save changes!
         }
 
-        public void Delete(int id)
+        public void Delete(int id)//Delete a CV if one exists with such an id
         {
             ATPEntities context = new ATPEntities();
             context.CV.Remove(context.CV.FirstOrDefault(element => element.ID == id));
-            context.SaveChanges();
+            context.SaveChanges();// Always save changes!
         }
-
+        //Get a CV if one exists with such an id
         public CVDTO Get(int id) => Convert(new ATPEntities().CV.FirstOrDefault(element => element.ID == id));
 
 
-        public void Edit(CVDTO dto)
+        public void Edit(CVDTO dto)//Edit a CV with the specified ID
         {
             ATPEntities context = new ATPEntities();
             CV entity = context.CV.FirstOrDefault(element => element.ID == dto.ID);
@@ -41,17 +41,20 @@ namespace Infrastructure
             entity.Qualities = dto.Qualities;
             entity.Picture = dto.PictureBytes;
             entity.PictureName = dto.PictureName;
-            context.SaveChanges();
+            context.SaveChanges();// Always save changes!
         }
 
+        //Check if the database has a CV with the specified id
         public bool Has(int id) => new ATPEntities().CV.FirstOrDefault(element => element.ID == id) != null;
 
+        //Return all elements
         public IEnumerable<CVDTO> GetAll()
         {
             foreach (CV cv in new ATPEntities().CV)
                 yield return Convert(cv);
         }
 
+        #region Mappers
         private CVDTO Convert(CV entity) =>
             new CVDTO
             {
@@ -80,5 +83,6 @@ namespace Infrastructure
                 Picture = dto.PictureBytes,
                 PictureName = dto.PictureName
             };
+        #endregion
     }
 }
