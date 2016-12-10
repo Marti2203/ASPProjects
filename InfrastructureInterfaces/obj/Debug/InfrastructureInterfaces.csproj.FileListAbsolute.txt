@@ -6,3 +6,5 @@ C:\Users\marti\Source\Repos\ASPProjects\InfrastructureInterfaces\bin\Debug\DataA
 C:\Users\marti\Source\Repos\ASPProjects\InfrastructureInterfaces\obj\Debug\InfrastructureInterfaces.csprojResolveAssemblyReference.cache
 C:\Users\marti\Source\Repos\ASPProjects\InfrastructureInterfaces\obj\Debug\InfrastructureInterfaces.dll
 C:\Users\marti\Source\Repos\ASPProjects\InfrastructureInterfaces\obj\Debug\InfrastructureInterfaces.pdb
+C:\Users\marti\Source\Repos\ASPProjects\InfrastructureInterfaces\bin\Debug\CommonFiles.dll
+C:\Users\marti\Source\Repos\ASPProjects\InfrastructureInterfaces\bin\Debug\CommonFiles.pdb

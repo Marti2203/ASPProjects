@@ -1,5 +1,4 @@
 ﻿using CommonFiles.DTO;
-using DataAccess;
 using InfrastructureInterfaces;
 using System;
 using System.Collections.Generic;
@@ -14,9 +13,9 @@ namespace TestApp.Controllers
         // GET: TestBoxHack
         public ActionResult Index()
         {
-            IService<UserDTO> service = ServiceFactory.CreateService<UserDTO,User>();
+            IService<UserDTO> service = Services.UserService;
             
-            return View(service.EntitiesQuery());
+            return View(service.Entities());
         }
     }
 }

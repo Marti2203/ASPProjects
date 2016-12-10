@@ -12,6 +12,6 @@ namespace InfrastructureInterfaces
         DTOType Get(int id);
         void Remove(int id);
         bool Has(int id);
-        IQueryable<DTOType> EntitiesQuery();
+        IQueryable<DTOType> Entities();
     }
 }
