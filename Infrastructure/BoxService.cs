@@ -6,11 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonFiles.DTO;
 using System.Reflection;
+using InfrastructureInterface;
 
 namespace Infrastructure
 {
     //Service for communication between the Database and the Controller
-    public class BoxService
+    public class BoxService:IBoxService
     {
         public void Insert(BoxDTO box)
         {

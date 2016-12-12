@@ -1,4 +1,5 @@
 ﻿using CommonFiles.DTO;
+using InfrastructureInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +7,18 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using TestApp.Models;
-using Infrastructure;
 namespace TestApp.Controllers
 {
     public class BoxController : Controller
     {
+        private readonly IBoxService _service;
+
+        public BoxController(IBoxService service)
+        {
+            _service = service;
+        }
+        
+
         public ActionResult Index()
         {
             return View("Box");
@@ -29,7 +37,7 @@ namespace TestApp.Controllers
         public ActionResult List()
         {
             List<BoxModel> boxes = new List<BoxModel>();
-            foreach (BoxDTO dto in new BoxService().GetAll())
+            foreach (BoxDTO dto in _service.GetAll())
             {
                 boxes.Add(Convert(dto));
             }
@@ -53,7 +61,7 @@ namespace TestApp.Controllers
                 {
                     property.SetValue(box, viewModel.GetType().GetProperty(property.Name).GetValue(viewModel));
                 }
-                new BoxService().Insert(box);
+                _service.Insert(box);
 
                 ViewBag.SuccessMessage = message;
                 return View();
@@ -71,7 +79,7 @@ namespace TestApp.Controllers
         //Delete a box with the specified id
         public ActionResult Delete(int id)
         {
-            new BoxService().Delete(id);//Find box if there exists one
+            _service.Delete(id);//Find box if there exists one
             return RedirectToAction("List");
         }
 
@@ -79,7 +87,7 @@ namespace TestApp.Controllers
         //Edit information of a specified by id box
         public ActionResult Edit(int id)
         {
-            BoxModel model = Convert(new BoxService().Get(id));//Find box if there exists one
+            BoxModel model = Convert(_service.Get(id));//Find box if there exists one
             return View(model);
         }
 
@@ -95,7 +103,7 @@ namespace TestApp.Controllers
                     property.SetValue(@new, viewModel.GetType().GetProperty(property.Name).GetValue(viewModel));
                 }
 
-                new BoxService().Edit(@new);
+                _service.Edit(@new);
 
                 return RedirectToAction("List");
             }

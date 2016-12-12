@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonFiles.DTO;
 using System.Reflection;
+using InfrastructureInterface;
 
 namespace Infrastructure
 {
     //Service for communication between the Database and the Controller
-    public class UserService
+    public class UserService:IUserService
     {
-
         //Insert a user to the database
         public void Insert(UserDTO user)
         {

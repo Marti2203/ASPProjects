@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TestApp.App_Start;
 
 namespace TestApp
 {
@@ -16,6 +17,7 @@ namespace TestApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
 
             ClientDataTypeModelValidatorProvider.ResourceClassKey = "Messages";
             DefaultModelBinder.ResourceClassKey = "Messages";

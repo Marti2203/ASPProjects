@@ -1,5 +1,6 @@
 ﻿using CommonFiles.DTO;
 using DataAccess;
+using InfrastructureInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class CVService
+    public class CVService:ICVService
     {
         public void Insert(CVDTO dto)
         {

@@ -1,5 +1,4 @@
 ﻿using CommonFiles.DTO;
-using Infrastructure;
 using reCaptcha;
 using System;
 using System.Collections.Generic;
@@ -11,17 +10,26 @@ using TestApp.Models;
 using System.Security.Cryptography;
 using System.Text;
 using System.Reflection;
+using InfrastructureInterface;
 
 namespace TestApp.Controllers
 {
     public class UserController : Controller
     {
+        private readonly IUserService _service;
+
+        public UserController(IUserService service)
+        {
+            _service = service;
+        }
+        
         //By default, accessing the User Controller without a specified action, you are prompted to create a user
         public ActionResult Index()
         {
             return RedirectToAction("Create");
         }
 
+        
 
         //Create User model and check if the last session has tried to create a user and fills out the needed info in the view
         //if the model existed 
@@ -56,7 +64,7 @@ namespace TestApp.Controllers
                 }
 
                 //Submits the user to the database via the service
-                new UserService().Insert(userDTO);
+                _service.Insert(userDTO);
 
                 return View();
             }
@@ -92,7 +100,7 @@ namespace TestApp.Controllers
         [HttpPost]
         public ActionResult Enter(UserModel model)
         {
-            if (new UserService().Get(model.ID).Password == ComputeHash(model.Password))
+            if (_service.Get(model.ID).Password == ComputeHash(model.Password))
             {
                 return View();
             }
@@ -111,7 +119,7 @@ namespace TestApp.Controllers
         public ActionResult List()
         {
             List<UserModel> users = new List<UserModel>();
-            foreach (UserDTO dto in new UserService().GetAll())
+            foreach (UserDTO dto in _service.GetAll())
             {
                 users.Add(Convert(dto));
             }
@@ -122,7 +130,7 @@ namespace TestApp.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            UserModel model = Convert(new UserService().Get(id));
+            UserModel model = Convert(_service.Get(id));
             return View(model);
         }
 
@@ -132,7 +140,7 @@ namespace TestApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                new UserService().Edit(Convert(viewModel));
+                _service.Edit(Convert(viewModel));
 
                 return RedirectToAction("List");
             }
@@ -144,7 +152,7 @@ namespace TestApp.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            new UserService().Delete(id);
+            _service.Delete(id);
             return RedirectToAction("List");
         }
 

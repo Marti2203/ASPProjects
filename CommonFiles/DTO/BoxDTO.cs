@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CommonFiles.DTO
 {
-    public class BoxDTO
+    public class BoxDTO:DTO
     {
         //DataTransferObject- Intermediary object between Model and Database Object
-        public int ID { get; set; }
         public string Colour { get; set; }
         public string Material { get; set; }
         public decimal Weight { get; set; }
