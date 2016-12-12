@@ -363,8 +363,10 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>echo F|xcopy "C:\Users\marti\Source\Repos\ASPProjects\Infrastructure\bin\Debug\Infrastructure.dll" "Infrastructure.dll" /Y
-echo F|xcopy "C:\Users\marti\Source\Repos\ASPProjects\DataAccess\bin\Debug\DataAccess.dll" "DataAccess.dll" /Y</PostBuildEvent>
+    <PostBuildEvent>echo F|xcopy "$(SolutionDir)\Infrastructure\bin\Debug\Infrastructure.dll" "Infrastructure.dll" /Y
+echo F|xcopy "$(SolutionDir)DataAccess\bin\Debug\DataAccess.dll" "DataAccess.dll" /Y
+echo F|xcopy "$(SolutionDir)\Infrastructure\bin\Debug\Infrastructure.pdb" "Infrastructure.pdb" /Y
+echo F|xcopy "$(SolutionDir)\DataAccess\bin\Debug\DataAccess.pdb" "DataAccess.pdb" /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
