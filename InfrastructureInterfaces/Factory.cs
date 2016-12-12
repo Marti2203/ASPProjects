@@ -14,6 +14,7 @@ namespace InfrastructureInterfaces
         public static IService<DTOType> CreateService<DTOType,EntityType>() where DTOType : class, new()
         {
             Service<DTOType,EntityType> service = new Service<DTOType,EntityType> { Context = new ATPEntities() };
+
             return service;
         }
 
