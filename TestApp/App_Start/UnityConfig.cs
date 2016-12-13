@@ -44,7 +44,7 @@ namespace TestApp.App_Start
             Assembly infrastructureImplementations= Assembly.Load("Infrastructure");
             container.RegisterType(typeof(IUserService), infrastructureImplementations.GetType("Infrastructure.UserService", true));//,(InjectionMember[])null);
             container.RegisterType(typeof(IBoxService), infrastructureImplementations.GetType("Infrastructure.BoxService", true));
-
+            container.RegisterType(typeof(ICVService), infrastructureImplementations.GetType("Infrastructure.CVService", true));
         }
     }
 }
