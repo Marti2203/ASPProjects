@@ -39,6 +39,7 @@ namespace TestApp.Models
         [Display(Name ="PictureName",ResourceType =typeof(CVResources))]
         public string PictureName { get; set; }
 
+        [Required(ErrorMessageResourceName ="NoPicture",ErrorMessageResourceType =typeof(ErrorResources))]
         public HttpPostedFileBase Picture { get; set; }
 
         public byte[] PictureBytes { get; set; }

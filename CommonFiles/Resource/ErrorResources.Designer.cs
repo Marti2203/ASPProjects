@@ -106,6 +106,15 @@ namespace CommonFiles.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Picture is required.
+        /// </summary>
+        public static string NoPicture {
+            get {
+                return ResourceManager.GetString("NoPicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Field {0} is required..
         /// </summary>
         public static string Required {

@@ -132,6 +132,9 @@
   <data name="MinLength" xml:space="preserve">
     <value>The Field {0} is with min length {1}.</value>
   </data>
+  <data name="NoPicture" xml:space="preserve">
+    <value>Picture is required</value>
+  </data>
   <data name="Required" xml:space="preserve">
     <value>The Field {0} is required.</value>
   </data>
